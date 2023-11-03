@@ -1,0 +1,44 @@
+class Nodo {
+    constructor(valor) {
+        this.valor = valor;
+        this.hijos = [];
+    }
+}
+
+function bfs(raiz) {
+    let cola = [raiz];
+    let visitados = new Set();
+    
+    while (cola.length > 0) {
+        let nodo = cola.shift();
+        if (!visitados.has(nodo)) {
+            console.log(nodo.valor);
+            visitados.add(nodo);
+            cola.push(...nodo.hijos);
+        }
+    }
+}
+function dfs(nodo) {
+    if (nodo !== null) {
+        console.log(nodo.valor);
+        nodo.hijos.forEach(hijo => dfs(hijo));
+    }
+}
+
+// Creamos un arbol 
+const nodo1 = new Nodo(1);
+const nodo2 = new Nodo(2);
+const nodo3 = new Nodo(3);
+const nodo4 = new Nodo(4);
+const nodo5 = new Nodo(5);
+
+nodo1.hijos = [nodo2, nodo3];
+nodo2.hijos = [nodo4, nodo5];
+
+// Prrobamos y aplicamos el BFS
+console.log("Recorrido BFS:");
+bfs(nodo1);
+
+// Prrobamos y aplicamos el DFS
+console.log("\nRecorrido DFS:");
+dfs(nodo1);

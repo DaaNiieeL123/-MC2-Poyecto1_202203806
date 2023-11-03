@@ -1,0 +1,66 @@
+class Nodo {
+    constructor(value) {
+        this.value = value; // Valor del nodo 
+        this.left = null;   // Hijo izquierdo
+        this.right = null;  // Hijo derecho
+    }
+}
+
+function construirArbol(expresion) {
+    const pila = []; // Inicializamos una variable vacía para almacenar los resultados.
+
+    for (const token of expresion) {
+        if (!isNaN(token)) { // Si el token es un número
+            pila.push(new Nodo(parseInt(token)));
+        } else { // Si el token es un operador
+            const dcha = pila.pop(); 
+            const izq = pila.pop(); 
+            const nodo = new Nodo(token); 
+            nodo.left = izq;
+            nodo.right = dcha;
+            pila.push(nodo);
+        }
+    }
+
+    return pila.pop(); // Retonar el  último elemento en la pila del árbol construido
+}
+
+function evaluar(nodo) {
+    if (!isNaN(nodo.value)) { // Si el valor del nodo es un número
+        return nodo.value;
+    }
+
+    const izq = evaluar(nodo.left);
+    const dcha = evaluar(nodo.right);
+
+    switch (nodo.value) { // Dependiendo del operador evaluar.
+        case '+': // Suma
+            return izq + dcha;
+        case '-': // Resta
+            return izq - dcha;
+        case '*': // Multiplicación
+            return izq * dcha;
+        case '/': // División
+            return izq / dcha;
+        default:
+            return null; // Si no hay un operador reconocido, nos dará un valor Nulo
+    }
+}
+
+// Expresiones en notación polaca
+const expresion1 = ['5', '2', '4', '*', '+', '7', '-'];
+const expresion2 = ['6', '2', '*', '3', '5', '*', '+', '18', '-'];
+const expresion3 = ['8', '4', '2', '/', '/'];
+
+
+// Construimos los árboles y evaluar las expresiones
+const arbolExpresion1 = construirArbol(expresion1);
+const arbolExpresion2 = construirArbol(expresion2);
+const arbolExpresion3 = construirArbol(expresion3);
+const resultado1 = evaluar(arbolExpresion1);
+const resultado2 = evaluar(arbolExpresion2);
+const resultado3 = evaluar(arbolExpresion3);
+
+console.log("\nEl resultado de la Expresion 1 es: " + resultado1);
+console.log("\nEl resultado de la Expresion 2 es: " + resultado2);
+console.log("\nEl resultado de la Expresion 3 es: " + resultado3);
