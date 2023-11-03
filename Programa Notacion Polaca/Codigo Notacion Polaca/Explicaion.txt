@@ -1,0 +1,41 @@
+Explicación detallada del resultado del Programa.
+
+1.	Expresión 1: ['5', '2', '4', '*', '+', '7', '-']
+
+•	Se toma el primer elemento '5' y se inserta en la pila.
+•	Luego, se toma el siguiente elemento '2' y se inserta en la pila.
+•	Después, se toma '4', que es un número, se inserta en la pila.
+•	Luego, se encuentra el operador '*', por lo que se toma el último número '4' y el anterior '2', se evalúa la multiplicación (4 * 2 = 8), y se inserta el resultado en la pila.
+•	La pila ahora contiene ['5', 8].
+•	A continuación, se toma el operador '+', se toma el último número '8' y el anterior '5', se evalúa la suma (5 + 8 = 13), y se inserta el resultado en la pila.
+•	La pila ahora contiene [13].
+•	Por último, se toma el operador '-', se toma el último número '13' y el anterior '7', se evalúa la resta (13 - 7 = 6), y se inserta el resultado en la pila.
+•	Resultado:
+•	El resultado final es 6.
+
+2.	Expresión 2: ['6', '2', '*', '3', '5', '*', '+', '18', '-']
+
+•	Se toma el primer elemento '6' y se inserta en la pila.
+•	Luego, se toma el siguiente elemento '2' y se inserta en la pila.
+•	Después, se encuentra el operador '*', por lo que se toma el último número '2' y el anterior '6', se evalúa la multiplicación (6 * 2 = 12), y se inserta el resultado en la pila.
+•	La pila ahora contiene [12].
+•	Luego, se toma '3', que es un número, se inserta en la pila.
+•	Luego, se toma '5', que es un número, se inserta en la pila.
+•	Después, se encuentra el operador '*', por lo que se toma el último número '5' y el anterior '3', se evalúa la multiplicación (3 * 5 = 15), y se inserta el resultado en la pila.
+•	La pila ahora contiene [12, 15].
+•	A continuación, se toma el operador '+', se toma el último número '15' y el anterior '12', se evalúa la suma (12 + 15 = 27), y se inserta el resultado en la pila.
+•	La pila ahora contiene [27].
+•	Por último, se toma el operador '-', se toma el último número '27' y el anterior '18', se evalúa la resta (27 - 18 = 9), y se inserta el resultado en la pila.
+•	Resultado:
+•	El resultado final es 9.
+
+3.	Expresión 3: ['8', '4', '2', '/', '/']
+
+•	Se toma el primer elemento '8' y se inserta en la pila.
+•	Luego, se toma el siguiente elemento '4' y se inserta en la pila.
+•	Después, se toma '2', que es un número, se inserta en la pila.
+•	Luego, se encuentra el operador '/', por lo que se toma el último número '2' y el anterior '4', se evalúa la división (4 / 2 = 2), y se inserta el resultado en la pila.
+•	La pila ahora contiene ['8', 2].
+•	A continuación, se encuentra el operador '/', por lo que se toma el último número '2' y el anterior '8', se evalúa       la división (8 / 2 = 4), y se inserta el resultado en la pila.
+•	Resultado:
+•	El resultado final es 4.
